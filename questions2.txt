@@ -1,0 +1,7 @@
+2,What is the most common surname in the United States?,Miller,Jones,Smith,Johnson,Smith
+3,What is the 4th letter of the Greek alphabet?,Epsilon,Zeta,Eta,Delta,Delta
+5,What is the largest Spanish-speaking city in the world?,Mexico City,France,Berlin,Arkasans,Mexico City
+7,What is the tallest type of tree?,Birch,Red Wood,Sugar Maple,Aspen,Red Wood
+8,In what country is the Chernobyl nuclear plant located?,USA,Germany,Ukraine,Canada,Ukraine
+9,Which country is credited with inventing ice cream?,China,Nepal,India,Bhutan,China
+10,What is the term for the study of birds?,Bibliography,Ornithology,Osteology,Zoology,Bibliography

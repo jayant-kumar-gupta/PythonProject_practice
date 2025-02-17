@@ -1,0 +1,4 @@
+Category: Food: Amount: 6000: Date: 2025-01-01: Description: New year's special food party.
+Category: Food: Amount: 2000: Date: 2024-12-15: Description: None
+Category: Travel: Amount: 25000: Date: 2025-01-01: Description: New year's tour to mustang.
+Category: Travel: Amount: 8000: Date: 2024-12-25: Description: None: 
