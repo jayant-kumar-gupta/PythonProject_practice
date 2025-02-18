@@ -17,8 +17,8 @@ def view():
             product_list = file.readlines()
             if product_list == "":
                 print("No data in the file.")
-            else:
-                for item in product_list:
+            # else:
+            #     for item in product_list:
 
     except FileNotFoundError:
         print("File missing. No data in the file or Record file may have been deleted.")
