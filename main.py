@@ -5,8 +5,12 @@ def insert():
     product_name = input("Enter the product name. ").capitalize()
     product_quantity = int(input(f"Enter the quantity of {product_name}."))
     product_price = float(input("Enter price per quantity. "))
-    with open("sales.txt","a") as file:
-        file.write(f"{product_name}, {product_quantity}, {product_price}\n")
+    with open("sales.txt","a+") as file:
+        product_list = file.readlines()
+        for product in product_list:
+            if product_name in product:
+                file
+        file.write(f"{product_name}, {product_quantity * product_price}\n")
     print("Record added successfully.")
     print("Returning to the main menu... ")
     time.sleep(1)
