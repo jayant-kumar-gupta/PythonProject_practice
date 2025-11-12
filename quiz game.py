@@ -87,18 +87,24 @@ def game():
             my_dict = {}
             line = random.choice(lines_list)
             data = line.strip().split(",")
-            print("--------------------------------------------------------------------------")
-            print(f"Q{i+1}: {data[1]}")
-            print(f"A. {data[2]}")
-            print(f"B. {data[3]}")
-            print(f"C. {data[4]}")
-            print(f"D. {data[5]}")
-            print("--------------------------------------------------------------------------")
-            my_dict["A"] = data[2]
-            my_dict["B"] = data[3]
-            my_dict["C"] = data[4]
-            my_dict["D"] = data[5]
-            answer = input("Enter your answer: ").upper().strip()
+            while True:
+                print("--------------------------------------------------------------------------")
+                print(f"Q{i+1}: {data[1]}")
+                print(f"A. {data[2]}")
+                print(f"B. {data[3]}")
+                print(f"C. {data[4]}")
+                print(f"D. {data[5]}")
+                print("--------------------------------------------------------------------------")
+                my_dict["A"] = data[2]
+                my_dict["B"] = data[3]
+                my_dict["C"] = data[4]
+                my_dict["D"] = data[5]
+                try:
+                    answer = input("Enter your answer: ").upper().strip()
+                    if answer in my_dict.keys():
+                        break
+                except ValueError:
+                    print("Wrong Option pressed. Enter again.")
             if my_dict[answer] == data[6]:
                 score += 1
                 print("--------------------------------------------------------------------------")
