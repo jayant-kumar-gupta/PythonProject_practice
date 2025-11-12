@@ -1,16 +1,28 @@
-my_list = ["Even" if x % 2 == 0 else "Odd" for x in range(1,21)]
-print(my_list)
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
-tuple_list = [(1, 5), (3, 2), (2, 8)]
-print(sorted(tuple_list, key=lambda x:x[1], reverse= True))
+node1 = Node(1)
+node2 = Node(3)
+node3 = Node(5)
+node4 = Node(7)
+node5 = Node(9)
 
-def uppercase(func):
-    def wrapper(*args, **kwargs):
-        return func(*args, **kwargs).upper()
-    return wrapper
+node1.next = node2
+node2.next = node3
+node3.next = node4
+node4.next = node5
 
-@uppercase
-def greet(name):
-    return f"Hello, {name}"
+def findGreatest(head):
+    greatest = head.data
+    currentNode = head.next
+    while currentNode:
+        if currentNode.data>greatest:
+            greatest = currentNode.data
+        currentNode = currentNode.next
+    return greatest
 
-print(greet("Alice"))
+
+
+print("The greatest number among the linked list is: ",findGreatest(node1))
