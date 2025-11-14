@@ -23,6 +23,50 @@ def findGreatest(head):
         currentNode = currentNode.next
     return greatest
 
+def travel(head):
+    currentNode = head
+    while currentNode != None:
+        print(currentNode.data, end=" -> ")
+        currentNode = currentNode.next
+    print("Null")
+
+def delnode(head,nodetodelete):
+    currentNode = head
+
+    if head == nodetodelete:
+        return head.next
+    
+    while currentNode and currentNode.next != nodetodelete:
+        currentNode = currentNode.next
+    
+    currentNode.next = currentNode.next.next
+    return head
+
+def insertnode(head,nodetoinsert,position):
+    newnode = nodetoinsert
+    if position == 1: 
+        newnode.next = head
+        return newnode
+    
+    currentNode = head
+    for _ in  range(position-2):
+        currentNode = currentNode.next
+
+    newnode.next = currentNode.next
+    currentNode.next = newnode
+    return head
 
 
-print("The greatest number among the linked list is: ",findGreatest(node1))
+# Find greatest node among Linked list
+# print("The greatest number among the linked list is: ",findGreatest(node1))
+
+# Travel through Linked list
+# print(travel(node1))
+
+# Delete Node
+# node1 = delnode(node1,node1)
+# print(travel(node1))
+
+# Insert Node
+# node1 = insertnode(node1,Node(2),6)
+# print(travel(node1))
