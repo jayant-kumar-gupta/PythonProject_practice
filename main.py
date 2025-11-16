@@ -1,3 +1,6 @@
+from itertools import count
+
+
 class Node:
     def __init__(self, data):
         self.data = data
@@ -5,14 +8,18 @@ class Node:
 
 node1 = Node(1)
 node2 = Node(3)
-node3 = Node(9)
+node3 = Node(5)
 node4 = Node(7)
-node5 = Node(5)
+node5 = Node(9)
+node6 = Node(11)
+node7 = Node(13)
 
 node1.next = node2
 node2.next = node3
 node3.next = node4
 node4.next = node5
+node5.next = node6
+node6.next = node7
 
 def findGreatest(head):
     greatest = head.data
@@ -108,8 +115,21 @@ def merge(head1, head2):
         currentNode.next = b
 
     return head
-        
 
+def kth_from_end(head, k):
+    fast = head
+    slow = head
+
+    for _ in range(k):
+        if not fast:
+            return None
+        fast = fast.next
+
+    while fast:
+        fast = fast.next
+        slow = slow.next
+
+    return slow.data
 
 
 # Find the greatest node among Linked list
@@ -137,16 +157,19 @@ def merge(head1, head2):
 # print(travel(node1))
 
 # Merge two sorted Linked Lists
-node11 = Node(11)
-node12 = Node(13)
-node13 = Node(15)
-node14 = Node(17)
-node15 = Node(19)
+# node11 = Node(11)
+# node12 = Node(13)
+# node13 = Node(15)
+# node14 = Node(17)
+# node15 = Node(19)
+#
+# node11.next = node12
+# node12.next = node13
+# node13.next = node14
+# node14.next = node15
+#
+# head_node = merge(node1,node11)
+# print(travel(head_node))
 
-node11.next = node12
-node12.next = node13
-node13.next = node14
-node14.next = node15
-
-head_node = merge(node1,node11)
-print(travel(head_node))
+# finding Kth element from end
+# print(kth_from_end(node1,3))
