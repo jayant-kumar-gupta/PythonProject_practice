@@ -5,9 +5,9 @@ class Node:
 
 node1 = Node(1)
 node2 = Node(3)
-node3 = Node(9)
+node3 = Node(5)
 node4 = Node(7)
-node5 = Node(5)
+node5 = Node(9)
 
 node1.next = node2
 node2.next = node3
@@ -77,6 +77,38 @@ def reverse_ll(head):
         currentNode = nxt
 
     return previous
+
+def merge(head1,head2):
+    a,b = head1,head2
+    if not a:
+        return b
+    if not b:
+        return a
+    
+    if a.data <= b.data:
+        head = a
+        a = a.next
+    else:
+        head = b
+        b = b.next
+
+    currentNode = head
+    while a and b:
+        if a.data <= b.data:
+            currentNode.next = a
+            a = a.next
+        else:
+            currentNode.next = b
+            b = b.next
+        currentNode = currentNode.next
+    
+    if a:
+        currentNode.next = a
+    else:
+        currentNode.next = b
+
+    return head
+
         
 
 
@@ -104,3 +136,18 @@ def reverse_ll(head):
 # Reverse Linked List
 # node1 = reverse_ll(node1)
 # print(travel(node1))
+
+# Merge two sorted Linked Lists
+node11 = Node(11)
+node12 = Node(13)
+node13 = Node(15)
+node14 = Node(17)
+node15 = Node(19)
+
+node11.next = node12
+node12.next = node13
+node13.next = node14
+node14.next = node15
+
+head_node = merge(node1,node11)
+print(travel(head_node))
