@@ -17,7 +17,7 @@ class Stack_array:
             count+=1
         return count
     def is_empty(self):
-        return not self.array
+        return not bool(self.array)
 
 # list1 = Stack_array()
 # list1.push(6)
@@ -30,6 +30,7 @@ class Stack_array:
 # print(len(list1))
 # print(list1.is_empty())
 
+# Implementation of stack using Linked List
 class Node:
     def __init__(self, data):
         self.data = data
@@ -79,3 +80,31 @@ class Stack_ll:
 # node.push("@")
 # print(node.pop())
 # print(node)
+
+# Queue operations: enqueue, dequeue, size, is_empty, peek
+class Queue_array:
+    def __init__(self):
+        self.array = []
+    def __repr__(self):
+        return str(self.array)
+    def enqueue(self, value):
+        self.array.append(value)
+    def dequeue(self):
+        return "Unable to dequeue. Queue is empty." if not self.array else self.array.remove(self.array[0])
+    def peek(self):
+        return self.array[0]
+    def size(self):
+        return len(self.array)
+    def is_empty(self):
+        return not bool(self.array)
+
+# list1 = Queue_array()
+# list1.enqueue(6)
+# list1.enqueue("Ram")
+# list1.enqueue("@")
+# print(list1)
+# list1.dequeue()
+# print(list1)
+# print(list1.peek())
+# print(list1.size())
+# print(list1.is_empty())
