@@ -82,6 +82,7 @@ class Stack_ll:
 # print(node)
 
 # Queue operations: enqueue, dequeue, size, is_empty, peek
+# Queue implementation using array
 class Queue_array:
     def __init__(self):
         self.array = []
@@ -103,6 +104,57 @@ class Queue_array:
 # list1.enqueue("Ram")
 # list1.enqueue("@")
 # print(list1)
+# list1.dequeue()
+# print(list1)
+# print(list1.peek())
+# print(list1.size())
+# print(list1.is_empty())
+
+# Queue implementation using Linked list
+class Queue_ll:
+    def __init__(self):
+        self.head = None
+        self.last = None
+    def __repr__(self):
+        return " -> ".join(str(x) for x in self.to_list()) or "Empty"
+    def to_list(self):
+        if not self.head:
+            return None
+        array = []
+        currentNode = self.head
+        while currentNode:
+            array.append(currentNode.data)
+            currentNode = currentNode.next
+        return array
+    def enqueue(self, value):
+        new_node = Node(value)
+        if not self.head:
+            self.head = self.last = new_node
+        self.last.next = new_node
+        self.last = new_node
+    def dequeue(self):
+        if not  self.head:
+            return None
+        removed_value = self.head
+        self.head = self.head.next
+        return removed_value
+    def peek(self):
+        return self.head.data if self.head else None
+    def size(self):
+        count = 0
+        currentNode = self.head
+        while currentNode:
+            count+=1
+            currentNode = currentNode.next
+        return count
+    def is_empty(self):
+        return bool(self.head)
+
+list1 = Queue_ll()
+list1.enqueue(6)
+list1.enqueue("Ram")
+list1.enqueue("@")
+print(list1)
 # list1.dequeue()
 # print(list1)
 # print(list1.peek())
