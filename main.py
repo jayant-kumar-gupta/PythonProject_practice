@@ -29,3 +29,53 @@ class Stack_array:
 # print(list1.peek())
 # print(len(list1))
 # print(list1.is_empty())
+
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
+
+class Stack_ll:
+    def __init__(self):
+        self.head = None
+    def __repr__(self):
+        return "Empty" if not self.head else ' -> '.join(str(x) for x in self.to_list())
+    def to_list(self):
+        if not self.head:
+            return None
+        array = []
+        currentNode = self.head
+        while currentNode:
+            array.append(currentNode.data)
+            currentNode = currentNode.next
+        return array
+    def push(self, value):
+        new_node = Node(value)
+        new_node.next = self.head
+        self.head = new_node
+    def pop(self):
+        if not self.head:
+            return "Cannot pop. Linked list is empty"
+        a = self.head
+        self.head = self.head.next
+        return a.data
+    def peek(self):
+        return self.head.data
+    def size(self):
+        if not self.head:
+            return 0
+        count = 0
+        currentNode = self.head
+        while currentNode:
+            count+=1
+            currentNode = currentNode.next
+        return count
+    def is_empty(self):
+        return not self.head
+
+# node = Stack_ll()
+# node.push(6)
+# node.push("Ram")
+# node.push("@")
+# print(node.pop())
+# print(node)
