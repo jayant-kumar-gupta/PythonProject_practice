@@ -53,7 +53,7 @@ def account_creator():
         while True:
             try:
                 balance = int(input("Enter the initial balance: "))
-                if balance <= 0:
+                if balance < 0:
                     print("Balance should be greater than 0. Please try again.")
                 else:
                     break

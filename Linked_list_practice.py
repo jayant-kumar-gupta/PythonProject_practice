@@ -122,11 +122,10 @@ def merge(head1, head2):
 
 
 def kth_from_end(head, k):
-    fast = head
-    slow = head
+    fast = slow = head
 
     for _ in range(k):
-        if not fast:
+        if not fast or not fast.next:
             return None
         fast = fast.next
 

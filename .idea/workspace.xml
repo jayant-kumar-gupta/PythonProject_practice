@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee2c7600-7ac9-4cae-8da3-f907f876c75c" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/CLI task manager.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/sales manager.py" afterDir="false" />
+    <list default="true" id="ee2c7600-7ac9-4cae-8da3-f907f876c75c" name="Changes" comment="completed BinarySearch.py file so that I can implement this feature into another program.">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Linked_list_practice.py" beforeDir="false" afterPath="$PROJECT_DIR$/Linked_list_practice.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Sample project for OOP.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sample project for OOP.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/account.txt" beforeDir="false" afterPath="$PROJECT_DIR$/account.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/expense.txt" beforeDir="false" afterPath="$PROJECT_DIR$/expense.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/support.txt" beforeDir="false" afterPath="$PROJECT_DIR$/support.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -35,7 +38,7 @@
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
     &quot;url&quot;: &quot;https://github.com/jayant-kumar-gupta/PythonProject_practice.git&quot;,
-    &quot;accountId&quot;: &quot;a390b021-0724-4569-a92b-e0d6b86e5052&quot;
+    &quot;accountId&quot;: &quot;51753d4e-0660-45a6-87e0-253de7b20da0&quot;
   }
 }</component>
   <component name="ProjectColorInfo">{
@@ -49,20 +52,31 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.test.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.sync&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Python.BinarySearch.executor": "Run",
+    "Python.CLI task manager.executor": "Run",
+    "Python.Sample prj for OOP2 or Inheritance.executor": "Run",
+    "Python.Sample project for OOP.executor": "Run",
+    "Python.expense recorder program.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.test.executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "git-widget-placeholder": "main",
+    "settings.editor.selected.configurable": "editor.preferences.inline.completion"
   }
-}</component>
+}]]></component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\DeepWeb\PycharmProjects\PythonProject_practice\Stack and Queue" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-fc1d50d2d915-aa17d162503b-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-243.24978.54" />
+        <option value="bundled-python-sdk-b3d66beaba9a-c6efb3732140-com.jetbrains.pycharm.pro.sharedIndexes.bundled-PY-252.26199.168" />
       </set>
     </attachedChunks>
   </component>
@@ -75,6 +89,135 @@
       <option name="presentableId" value="Default" />
       <updated>1739528647757</updated>
     </task>
+    <task id="LOCAL-00001" summary="corrected cyclomatic linked list">
+      <option name="closed" value="true" />
+      <created>1763283734277</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1763283734277</updated>
+    </task>
+    <task id="LOCAL-00002" summary="completed practicing linked list.">
+      <option name="closed" value="true" />
+      <created>1763285053057</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1763285053057</updated>
+    </task>
+    <task id="LOCAL-00003" summary="created separate file for linked list">
+      <option name="closed" value="true" />
+      <created>1763285132306</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1763285132306</updated>
+    </task>
+    <task id="LOCAL-00004" summary="implemented stack using arrays">
+      <option name="closed" value="true" />
+      <created>1763467840620</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1763467840620</updated>
+    </task>
+    <task id="LOCAL-00005" summary="implemented stack using linked list">
+      <option name="closed" value="true" />
+      <created>1763469796007</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1763469796007</updated>
+    </task>
+    <task id="LOCAL-00006" summary="implemented queue using array">
+      <option name="closed" value="true" />
+      <created>1763470819446</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1763470819446</updated>
+    </task>
+    <task id="LOCAL-00007" summary="implemented queue using Linked list">
+      <option name="closed" value="true" />
+      <created>1763478789455</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1763478789455</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Created separate file  for stack and queue basics.">
+      <option name="closed" value="true" />
+      <created>1763478873064</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1763478873064</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Created separate file  for stack and queue basics.">
+      <option name="closed" value="true" />
+      <created>1763478887022</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1763478887022</updated>
+    </task>
+    <task id="LOCAL-00010" summary="created a file for stack question (undo/redo in text editor)">
+      <option name="closed" value="true" />
+      <created>1763655458217</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1763655458217</updated>
+    </task>
+    <task id="LOCAL-00011" summary="created a file for stack question (browser back tracking system)">
+      <option name="closed" value="true" />
+      <created>1763655584932</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1763655584932</updated>
+    </task>
+    <task id="LOCAL-00012" summary="created a file for stack question (check parenthesis)">
+      <option name="closed" value="true" />
+      <created>1763655707954</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1763655707954</updated>
+    </task>
+    <task id="LOCAL-00013" summary="organised some files into folder and deleted an unnecessary file.">
+      <option name="closed" value="true" />
+      <created>1763656453239</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1763656453239</updated>
+    </task>
+    <task id="LOCAL-00014" summary="removed unused import statement.">
+      <option name="closed" value="true" />
+      <created>1765604715098</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1765604715098</updated>
+    </task>
+    <task id="LOCAL-00015" summary="created a file for searching items in a list which is in sorted order.">
+      <option name="closed" value="true" />
+      <created>1765787466328</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1765787466328</updated>
+    </task>
+    <task id="LOCAL-00016" summary="completed BinarySearch.py file so that I can implement this feature into another program.">
+      <option name="closed" value="true" />
+      <created>1767518399676</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1767518399676</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -87,5 +230,23 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="corrected cyclomatic linked list" />
+    <MESSAGE value="completed practicing linked list." />
+    <MESSAGE value="created separate file for linked list" />
+    <MESSAGE value="implemented stack using arrays" />
+    <MESSAGE value="implemented stack using linked list" />
+    <MESSAGE value="implemented queue using array" />
+    <MESSAGE value="implemented queue using Linked list" />
+    <MESSAGE value="Created separate file  for stack and queue basics." />
+    <MESSAGE value="created a file for stack question (undo/redo in text editor)" />
+    <MESSAGE value="created a file for stack question (browser back tracking system)" />
+    <MESSAGE value="created a file for stack question (check parenthesis)" />
+    <MESSAGE value="organised some files into folder and deleted an unnecessary file." />
+    <MESSAGE value="removed unused import statement." />
+    <MESSAGE value="created a file for searching items in a list which is in sorted order." />
+    <MESSAGE value="completed BinarySearch.py file so that I can implement this feature into another program." />
+    <option name="LAST_COMMIT_MESSAGE" value="completed BinarySearch.py file so that I can implement this feature into another program." />
   </component>
 </project>
