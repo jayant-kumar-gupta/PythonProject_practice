@@ -15,7 +15,12 @@ class Binary:
             return self.binary_search(start,middle)
         return self.binary_search(middle,end)
 
-array = [1,2,5,7,9,10,81]
-target = 7
-obj = Binary(array,target)
-print(obj.binary_search(0,len(array)-1))
+# array = [1,2,5,7,9,10,81]
+# target = 7
+# obj = Binary(array,target)
+# print(obj.binary_search(0,len(array)-1))
+
+def binary_search(array,target):
+    array.sort()
+    obj = Binary(array,target)
+    return obj.binary_search(0,len(array)-1)
