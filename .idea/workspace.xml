@@ -4,15 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="ee2c7600-7ac9-4cae-8da3-f907f876c75c" name="Changes" comment="completed BinarySearch.py file so that I can implement this feature into another program.">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ee2c7600-7ac9-4cae-8da3-f907f876c75c" name="Changes" comment="updated some files.">
+      <change afterPath="$PROJECT_DIR$/Largest_rectangle_in_Histogram.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Linked_list_practice.py" beforeDir="false" afterPath="$PROJECT_DIR$/Linked_list_practice.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Sample project for OOP.py" beforeDir="false" afterPath="$PROJECT_DIR$/Sample project for OOP.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/account.txt" beforeDir="false" afterPath="$PROJECT_DIR$/account.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/expense.txt" beforeDir="false" afterPath="$PROJECT_DIR$/expense.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/support.txt" beforeDir="false" afterPath="$PROJECT_DIR$/support.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +50,7 @@
   "keyToString": {
     "Python.BinarySearch.executor": "Run",
     "Python.CLI task manager.executor": "Run",
+    "Python.Largest_rectangle_in_Histogram.executor": "Run",
     "Python.Sample prj for OOP2 or Inheritance.executor": "Run",
     "Python.Sample project for OOP.executor": "Run",
     "Python.expense recorder program.executor": "Run",
@@ -217,7 +212,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767518399676</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="updated some files.">
+      <option name="closed" value="true" />
+      <created>1767540973290</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1767540973290</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -247,6 +250,7 @@
     <MESSAGE value="removed unused import statement." />
     <MESSAGE value="created a file for searching items in a list which is in sorted order." />
     <MESSAGE value="completed BinarySearch.py file so that I can implement this feature into another program." />
-    <option name="LAST_COMMIT_MESSAGE" value="completed BinarySearch.py file so that I can implement this feature into another program." />
+    <MESSAGE value="updated some files." />
+    <option name="LAST_COMMIT_MESSAGE" value="updated some files." />
   </component>
 </project>
