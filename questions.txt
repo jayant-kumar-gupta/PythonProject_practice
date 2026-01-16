@@ -7,4 +7,4 @@
 7,What is the tallest type of tree?,Birch,Red Wood,Sugar Maple,Aspen,Red Wood
 8,In what country is the Chernobyl nuclear plant located?,USA,Germany,Ukraine,Canada,Ukraine
 9,Which country is credited with inventing ice cream?,China,Nepal,India,Bhutan,China
-10,What is the term for the study of birds?,Bibliography,Ornithology,Osteology,Zoology,Bibliography
+10,What is the term for the study of birds?,Bibliography,Ornithology,Osteology,Zoology,Ornithology

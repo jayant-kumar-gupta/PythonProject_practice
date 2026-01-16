@@ -1,178 +1,225 @@
 from tabulate import tabulate
 import random
 import time
+import csv
+import os
+
+QUESTIONS_FILE = "questions.txt"
+
+def get_next_serial_number():
+    """Reads the last serial number from the file and returns the next one."""
+    if not os.path.exists(QUESTIONS_FILE):
+        return 1
+    
+    try:
+        with open(QUESTIONS_FILE, "r", newline='', encoding='utf-8') as file:
+            reader = csv.reader(file)
+            data = list(reader)
+            if data:
+                last_row = data[-1]
+                # Ensure the first column is a number
+                if last_row and last_row[0].isdigit():
+                    return int(last_row[0]) + 1
+            return 1
+    except Exception:
+        return 1
 
 def add_question():
-    # Determine the next serial number
-    try:
-        with open("questions.txt", "r") as file:
-            lines = file.readlines()
-            if lines:
-                last_line = lines[-1]
-                last_serial_number = int(last_line.split(",")[0])
-                next_serial_number = last_serial_number + 1
-            else:
-                next_serial_number = 1
-    except FileNotFoundError:
-        next_serial_number = 1
+    next_serial_number = get_next_serial_number()
 
     while True:
-        print("--------------------------------------------------------------------------")
+        print("-" * 74)
         question = input("Enter question: ").capitalize()
         option1 = input("Enter option1: ").capitalize()
         option2 = input("Enter option2: ").capitalize()
         option3 = input("Enter option3: ").capitalize()
         option4 = input("Enter option4: ").capitalize()
-        answer = input("Enter answer: ").capitalize()
-        with open("questions.txt", "a") as file:
-            file.write(f"{next_serial_number},{question},{option1},{option2},{option3},{option4},{answer}\n")
-        with open("questions2.txt", "a") as file:
-            file.write(f"{next_serial_number},{question},{option1},{option2},{option3},{option4},{answer}\n")
+        answer = input("Enter answer(Full Text): ").capitalize() # Asking for full text to match format
+        
+        # Validation: Verify answer matches one of the options
+        options = [option1, option2, option3, option4]
+        if answer not in options:
+             print("Warning: The answer you typed doesn't match any of the options exactly.")
+             confirm = input("Are you sure? (y/n): ")
+             if confirm.lower() != 'y':
+                 continue
+
+        with open(QUESTIONS_FILE, "a", newline='', encoding='utf-8') as file:
+            writer = csv.writer(file)
+            writer.writerow([next_serial_number, question, option1, option2, option3, option4, answer])
+            
         print("Question added successfully..")
         next_serial_number += 1
+        
         choice = input("Do you want to add more questions? (y/n): ")
-        if choice == "n":
+        if choice.lower() != "y":
             break
-        elif choice == "y":
-            continue
-        else:
-            print("Wrong Input! Enter y for yes or n for no.")
 
 
 def view_question():
-    with open("questions.txt", "r") as file:
-        data = file.readlines()
-        data = [line.strip().split(",") for line in data]
-        print("--------------------------------------------------------------------------")
+    if not os.path.exists(QUESTIONS_FILE):
+         print("No questions found.")
+         return
+
+    with open(QUESTIONS_FILE, "r", newline='', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        data = list(reader)
+        print("-" * 74)
         print(tabulate(data, headers=["SN","Question", "Option1", "Option2", "Option3", "Option4", "Answer"]))
-        print("--------------------------------------------------------------------------")
+        print("-" * 74)
 
 def delete_question():
-    with open("questions.txt", "r") as file:
-        lines_list = file.readlines()
-        data = [line.strip().split(",") for line in lines_list]
-        print("--------------------------------------------------------------------------")
-        print(tabulate(data, headers=["SN", "Question", "Option1", "Option2", "Option3", "Option4", "Answer"]))
-        print("--------------------------------------------------------------------------")
-        try:
-            question_number = int(input("Enter question number to delete: "))
-            if 1 <= question_number <= len(lines_list):
-                del lines_list[question_number - 1]
-                with open("questions.txt", "w") as _file:
-                    for i, line in enumerate(lines_list):
-                        data = line.strip().split(",")
-                        _file.write(f"{i + 1},{data[1]},{data[2]},{data[3]},{data[4]},{data[5]},{data[6]}\n")
-                with open("questions2.txt", "w") as _file:
-                    for i, line in enumerate(lines_list):
-                        data = line.strip().split(",")
-                        _file.write(f"{i + 1},{data[1]},{data[2]},{data[3]},{data[4]},{data[5]},{data[6]}\n")
-                print("Question deleted successfully.")
-            else:
-                print("Wrong question number. Enter question number shown in the list.")
-        except ValueError:
-            print("Question number contains only number.")
+    if not os.path.exists(QUESTIONS_FILE):
+         print("No questions found.")
+         return
+         
+    with open(QUESTIONS_FILE, "r", newline='', encoding='utf-8') as file:
+        reader = csv.reader(file)
+        data = list(reader)
+
+    print("-" * 74)
+    print(tabulate(data, headers=["SN", "Question", "Option1", "Option2", "Option3", "Option4", "Answer"]))
+    print("-" * 74)
+    
+    try:
+        question_number = int(input("Enter question number (SN) to delete: "))
+        
+        # Find index in list (SN might not match index if deleted previously, so we search)
+        index_to_delete = -1
+        for i, row in enumerate(data):
+            if row and row[0].isdigit() and int(row[0]) == question_number:
+                index_to_delete = i
+                break
+        
+        if index_to_delete != -1:
+            del data[index_to_delete]
+            
+            # Re-write the file with updated Serial Numbers
+            with open(QUESTIONS_FILE, "w", newline='', encoding='utf-8') as file:
+                writer = csv.writer(file)
+                for i, row in enumerate(data):
+                    row[0] = i + 1 # Reset SN
+                    writer.writerow(row)
+            print("Question deleted successfully.")
+        else:
+            print("Question number not found.")
+            
+    except ValueError:
+        print("Invalid input. Please enter a number.")
 
 def game():
-    time.sleep(1)
-    print("You will be asked 10 questions. ")
-    time.sleep(1)
-    print("Each question consists of 1 mark. ")
-    time.sleep(2)
-    print("Lets Go!!!!!!!!!")
-    time.sleep(1)
-    with open("questions2.txt", "r") as file:
-        lines_list = file.readlines()
+    while True: # Game Loop for "Play Again"
+        if not os.path.exists(QUESTIONS_FILE):
+            print("No questions file found! Ask Admin to add questions.")
+            return
+
+        # 1. READ ALL QUESTIONS (Non-destructive)
+        with open(QUESTIONS_FILE, "r", newline='', encoding='utf-8') as file:
+            reader = csv.reader(file)
+            all_questions = list(reader)
+        
+        if not all_questions:
+            print("No questions available to play.")
+            return
+
+        # 2. SHUFFLE IN MEMORY
+        random.shuffle(all_questions)
+        
+        # 3. SELECT TOP 10 (or fewer)
+        num_questions = min(10, len(all_questions))
+        game_questions = all_questions[:num_questions]
+        
         score = 0
-        for i in range(10):
-            my_dict = {}
-            line = random.choice(lines_list)
-            data = line.strip().split(",")
+        
+        time.sleep(1)
+        print(f"You will be asked {num_questions} questions.")
+        time.sleep(1)
+        print("Lets Go!!!!!!!!!")
+        time.sleep(1)
+        
+        for i, row in enumerate(game_questions):
+            # row structure: [SN, Question, opt1, opt2, opt3, opt4, Answer]
+            question_text = row[1]
+            options_list = row[2:6] # Indices 2, 3, 4, 5
+            correct_answer = row[6]
+            
+            # Map options to A, B, C, D
+            option_map = {
+                "A": options_list[0],
+                "B": options_list[1],
+                "C": options_list[2],
+                "D": options_list[3]
+            }
+            
+            print("-" * 74)
+            print(f"Q{i+1}: {question_text}")
+            print(f"A. {option_map['A']}")
+            print(f"B. {option_map['B']}")
+            print(f"C. {option_map['C']}")
+            print(f"D. {option_map['D']}")
+            print("-" * 74)
+            
+            user_choice = ""
             while True:
-                print("--------------------------------------------------------------------------")
-                print(f"Q{i+1}: {data[1]}")
-                print(f"A. {data[2]}")
-                print(f"B. {data[3]}")
-                print(f"C. {data[4]}")
-                print(f"D. {data[5]}")
-                print("--------------------------------------------------------------------------")
-                my_dict["A"] = data[2]
-                my_dict["B"] = data[3]
-                my_dict["C"] = data[4]
-                my_dict["D"] = data[5]
-                try:
-                    answer = input("Enter your answer: ").upper().strip()
-                    if answer in my_dict.keys():
-                        break
-                except ValueError:
-                    print("Wrong Option pressed. Enter again.")
-            if my_dict[answer] == data[6]:
+                user_choice = input("Enter your answer (A/B/C/D): ").upper().strip()
+                if user_choice in ["A", "B", "C", "D"]:
+                    break
+                print("Invalid input. Please enter A, B, C, or D.")
+            
+            user_answer_text = option_map[user_choice]
+            
+            # Compare answer (case insensitive strip)
+            if user_answer_text.strip().lower() == correct_answer.strip().lower():
+                print("-" * 74)
+                print("Correct Answer!")
+                print("-" * 74)
                 score += 1
-                print("--------------------------------------------------------------------------")
-                print("Correct Answer")
-                print("--------------------------------------------------------------------------")
             else:
-                print("--------------------------------------------------------------------------")
-                print("Wrong Answer")
-                print("--------------------------------------------------------------------------")
-            lines_list.remove(line)
-            with open("questions2.txt", "w") as _file:
-                for line in lines_list:
-                    _file.write(line)
-    with open("questions.txt", "r") as file:
-        lines_list = file.readlines()
-        with open("questions2.txt", "w") as _file:
-            for line in lines_list:
-                _file.write(line)
-    while True:
-        print("--------------------------------------------------------------------------")
-        print("1. Review score. ")
-        print("2. Play again. ")
-        print("3. Exit. ")
-        print("--------------------------------------------------------------------------")
-        choice = input("Enter your choice: ")
-        print("--------------------------------------------------------------------------")
-        if choice == "1":
-            print(f"Your score is {score}")
-            if score < 5:
-                print("Better luck next time.")
-                print("--------------------------------------------------------------------------")
-            elif score < 8:
-                print("Good.")
-                print("--------------------------------------------------------------------------")
-            else:
-                print("Excellent.")
-                print("--------------------------------------------------------------------------")
-        elif choice == "2":
-            game()
-        elif choice == "3":
-            break
+                print("-" * 74)
+                print(f"Wrong Answer! The correct answer was: {correct_answer}")
+                print("-" * 74)
+        
+        # End of round summary
+        print("-" * 74)
+        print(f"Your final score is {score}/{num_questions}")
+        
+        if score == num_questions:
+            print("Excellent! Perfect Score!")
+        elif score >= num_questions * 0.7:
+             print("Good Job!")
         else:
-            print("Wrong choice. Enter (1-3). ")
+             print("Better luck next time.")
+        print("-" * 74)
+
+        play_again = input("Do you want to play again? (y/n): ").lower()
+        if play_again != "y":
+            break 
 
 #Main program
-
 def main():
     while True:
-        print("-------------Welcome to the quiz game-------------")
-        print("--------------------------------------------------------------------------")
+        print("\n-------------Welcome to the quiz game-------------")
+        print("-" * 74)
         print("1. Admin Mode")
         print("2. Player Mode")
         print("3. Exit")
-        print("--------------------------------------------------------------------------")
+        print("-" * 74)
+        
         choice = input("Enter your choice: ")
+        
         if choice == "1":
             password = "123"
-            key = input("Enter password to login. ")
+            key = input("Enter password to login: ")
             if key == password:
                 print("Logged in successfully..")
                 while True:
-                    print("--------------------------------Admin Mode-------------------------------")
-                    print("--------------------------------------------------------------------------")
-                    print("1. Add questions. ")
-                    print("2. View questions. ")
-                    print("3. Delete questions. ")
-                    print("4. Exit Admin Mode. ")
-                    print("--------------------------------------------------------------------------")
+                    print("\n" + "-" * 32 + "Admin Mode" + "-" * 31)
+                    print("1. Add questions")
+                    print("2. View questions")
+                    print("3. Delete questions")
+                    print("4. Exit Admin Mode")
+                    print("-" * 74)
+                    
                     choice2 = input("Enter your choice: ")
                     if choice2 == "1":
                         add_question()
@@ -183,25 +230,27 @@ def main():
                     elif choice2 == "4":
                         break
                     else:
-                        print("Wrong choice. Enter (1-3). ")
+                        print("Wrong choice. Enter (1-4).")
+            else:
+                print("Incorrect Password.")
 
         elif choice == "2":
-            print("--------------------------------Player Mode-------------------------------")
-            print("--------------------------------------------------------------------------")
-            print("1. Start Quiz. ")
-            print("2. Exit Player Mode. ")
-            print("--------------------------------------------------------------------------")
-            choice3 = input("Enter your choice: ")
-            if choice3 == "1":
-                game()
-            elif choice3 == "2":
-                break
+             print("\n" + "-" * 32 + "Player Mode" + "-" * 31)
+             print("1. Start Quiz")
+             print("2. Exit Player Mode")
+             print("-" * 74)
+             
+             choice3 = input("Enter your choice: ")
+             if choice3 == "1":
+                 game()
+             elif choice3 == "2":
+                 pass # Just goes back to main menu
+                 
         elif choice == "3":
             print("GoodBye!")
             break
         else:
-            print("Wrong choice. Enter (1-3). ")
-
+            print("Wrong choice. Enter (1-3).")
 
 if __name__ == '__main__':
     main()
